@@ -2,6 +2,7 @@ var maze,mazeImg
 var playB,rulesB,sB,rulesI
 var greeting,greeting2
 var coin,potion,arrow
+var rule1,story1
 
 function preload() {
  hpImg = loadImage("assets/Home_Page.png")
@@ -584,8 +585,10 @@ function mazeScreen(){
 
 
 function ruleBoard(){
-  image(rulesI,width/2-400,height/2-800,width/3,height)
-  hp.visible = false
+ rule1 = createSprite(width/2+100,height/2,width/3+100,height)
+ rule1.addImage(rulesI)
+ rule1.scale = 5
+  story1.visible = false
   message = `
   <center><u><font size = "20" color = #4b3621> RULES </u> </font>
   </br>
@@ -597,10 +600,14 @@ function ruleBoard(){
   </br> SHOOT - LEFT OR RIGHT + SPACE</center></font>`
   greeting.html(message)
   greeting.position(width/2-150,height/2-500)
+  greeting2.hide()
 }
 
 function story(){
-  image(rulesI,width/2-450,height/2-800,width/3+100,height)
+  story1 = createSprite(width/2,height/2,width/3+100,height)
+  story1.addImage(rulesI)
+  story1.scale = 5
+  rule1.visible = false
   hp.visible = false
   message2 = `
   <center><u><font size = "20" color = "	#483248"> STORY </u> </font>
@@ -638,6 +645,7 @@ function story(){
   </center></font>`
   greeting2.html(message2)
   greeting2.position(width/2-350,height/2-550)
+  greeting.hide()
 }
 
 
